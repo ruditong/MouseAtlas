@@ -108,9 +108,22 @@ def update_graph(region, drop, slider):
         fig.update_traces(hoverinfo="none", hovertemplate=None,)
 
     elif drop == "Atlas":
-        fig = px.imshow(ims[slider], color_continuous_scale='gray', aspect='auto')
+        fig = go.Figure()
+        fig.add_trace(go.Scatter())
+        fig.add_layout_image(
+        dict(
+            source=f'https://raw.githubusercontent.com/ruditong/MouseAtlas/main/atlas/image_atlas_{int(slider)+1}0.jpeg',
+            xref="x",
+            yref="y",
+            x=0,
+            y=100,
+            sizex=100,
+            sizey=100,
+            sizing="stretch",))
+        #fig = px.imshow(ims[slider], color_continuous_scale='gray', aspect='auto')
         fig.update_layout(yaxis={'visible': False, 'showticklabels': False}, xaxis={'visible': False, 'showticklabels': False}, 
-                          margin={'l': 0, 'b': 0, 't': 0, 'r': 0}, height=500, width=600, template='plotly_dark')
+                          margin={'l': 0, 'b': 0, 't': 0, 'r': 0}, height=500, width=600, template='plotly_dark', 
+                          xaxis_range=[0, 100], yaxis_range=[0, 100],)
 
         fig.update_traces(hoverinfo="none", hovertemplate=None)
         

@@ -2,3 +2,4 @@ dash==2.13.0
 pandas
 Pillow
 gunicorn==19.7.1
+matplotlib

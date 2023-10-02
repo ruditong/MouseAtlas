@@ -89,7 +89,7 @@ app.layout = html.Div([
 
 ], style={'height':'600px', 'width': '1200px','margin':'0', 'padding':'0'})
 
-@callback(
+@app.callback(
     Output('umap-scatter', 'figure'),
     Input('check1', 'value'),
     Input('dropdown1', 'value'),
@@ -116,7 +116,7 @@ def update_graph(region, drop, slider):
         
     return fig
 
-@callback(
+@app.callback(
     Output("umap-tooltip", "show"),
     Output("umap-tooltip", "bbox"),
     Output("umap-tooltip", "children"),
@@ -167,7 +167,7 @@ def initialise_graph1():
     fig.update_traces(sort=False, title='Neighbourhood')
     return fig
 
-@callback(
+@app.callback(
     Output('neighbourhood', 'figure'),
     Input("umap-scatter", "hoverData"),
     Input('check1', 'value'),
@@ -208,7 +208,7 @@ def initialise_graph2():
     fig.update_layout(plot_bgcolor='#111111', paper_bgcolor= '#111111')
     return fig
 
-@callback(
+@app.callback(
     Output('table', 'figure'),
     Input("umap-scatter", "hoverData"),
     Input('check1', 'value'),
@@ -253,7 +253,7 @@ def initialise_graph3():
     fig.update_traces(line_color='black')
     return fig
 
-@callback(
+@app.callback(
     Output('sf', 'figure'),
     Input("umap-scatter", "hoverData"),
     Input('check1', 'value'),

@@ -3,3 +3,5 @@ pandas
 Pillow
 gunicorn==19.7.1
 matplotlib
+numpy
+requests
